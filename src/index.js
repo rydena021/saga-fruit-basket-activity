@@ -7,15 +7,15 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
-// Step 1: import saga middleware
+// Import saga middleware
 import createSagaMiddleware from 'redux-saga';
 
-// Step 2: Create the rootSaga generator function
+// Create the rootSaga generator function
 function* rootSaga() {
 
 }
 
-// Step 3: Create sagaMiddleware
+// Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
 // This function (our reducer) will be called when an 
