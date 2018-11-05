@@ -35,11 +35,11 @@ const storeInstance = createStore(
     combineReducers({
         basketReducer,
     }),
-    // Step 4: Add sagaMiddleware to our store
+    // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
 
-// Step 5: Pass rootSaga into our sagaMiddleware
+// Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
