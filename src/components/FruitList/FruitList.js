@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FruitItem from '../FruitItem/FruitItem.js';
 import { connect } from 'react-redux';
-import axios from 'axios';
+// import axios from 'axios';
 
 class FruitList extends Component {
     componentDidMount() {
@@ -9,15 +9,16 @@ class FruitList extends Component {
     }
 
     getFruit() {
-        axios({
-            method: 'GET',
-            url: '/fruit'
-        }).then((response) => {
-            const action = { type: 'SET_BASKET', payload: response.data };
-            this.props.dispatch(action);
-        }).catch((error) => {
-            alert('Unable to get basket from server');
-        });
+        // axios({
+        //     method: 'GET',
+        //     url: '/fruit'
+        // }).then((response) => {
+        //     const action = { type: 'SET_BASKET', payload: response.data };
+        //     this.props.dispatch(action);
+        // }).catch((error) => {
+        //     alert('Unable to get basket from server');
+        // });
+      this.props.dispatch({ type: 'FETCH_FRUITS' });
     }
 
     render() {

@@ -4,27 +4,29 @@ import { connect } from 'react-redux';
 
 class FruitItem extends Component {
     removeItem = () => {
-        axios({
-            method: 'DELETE',
-            url: `/fruit/${this.props.basketItem.id}`
-        }).then((response) => {
-            this.getFruit();
-        }).catch((error) => {
-            console.log(error);
-            alert('Unable to delete item');
-        });  
+        // axios({
+        //     method: 'DELETE',
+        //     url: `/fruit/${this.props.basketItem.id}`
+        // }).then((response) => {
+        //     this.getFruit();
+        // }).catch((error) => {
+        //     console.log(error);
+        //     alert('Unable to delete item');
+        // });
+      this.props.dispatch({ type: 'DELETE_FRUIT', payload: this.props.basketItem.id });
     }
 
     getFruit() {
-        axios({
-            method: 'GET',
-            url: '/fruit'
-        }).then((response) => {
-            const action = { type: 'SET_BASKET', payload: response.data };
-            this.props.dispatch(action);
-        }).catch((error) => {
-            alert('Unable to get basket from server');
-        });
+        // axios({
+        //     method: 'GET',
+        //     url: '/fruit'
+        // }).then((response) => {
+        //     const action = { type: 'SET_BASKET', payload: response.data };
+        //     this.props.dispatch(action);
+        // }).catch((error) => {
+        //     alert('Unable to get basket from server');
+        // });
+      this.props.dispatch({ type: 'FETCH_FRUITS' })
     }
 
     render() {
