@@ -34,7 +34,6 @@ function* postFruit(action) {
   try {
     yield call(axios.post, '/fruit', action.payload)
     yield put({ type: 'FETCH_FRUITS' });
-    console.log('end postElement');
   } catch (error) {
     console.log('error: ', error);
   }
